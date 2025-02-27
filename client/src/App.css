@@ -1,0 +1,276 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #3a7bd5, #3a6073);
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Home Screen */
+.home-container h1 {
+  font-size: 28px;
+}
+
+.start-btn {
+  background: #28a745;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.start-btn:hover {
+  background: #218838;
+}
+/* Input Box Styling */
+.input-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #0072ff;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-align: center;
+}
+
+/* Placeholder Styling */
+.input-box::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+/* Focus Effect */
+.input-box:focus {
+  border-color: #ff5f6d;
+  box-shadow: 0 0 10px rgba(255, 95, 109, 0.5);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Input Wrapper (Optional for Centering) */
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+/* Quiz Section */
+.quiz-container h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.question {
+  font-size: 20px;
+  margin: 15px 0;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.option-btn {
+  width: 80%;
+  padding: 10px;
+  margin: 5px;
+  font-size: 16px;
+  background: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.option-btn:hover {
+  background: #0056b3;
+}
+
+.option-btn.selected {
+  background: #ffc107;
+  color: black;
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+  margin-top: 20px;
+}
+
+.prev-btn, .next-btn {
+  background: #ff9800;
+  padding: 8px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background: #e68900;
+}
+
+/* Score Page */
+.score-container h1 {
+  font-size: 26px;
+}
+
+.score {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.review-btn, .home-btn,.leaderboard-btn {
+  background: #17a2b8;
+  padding: 8px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin: 5px;
+  transition: 0.3s;
+}
+
+.review-btn:hover, .home-btn:hover,.leaderboard-btn:hover {
+  background: #138496;
+}
+
+/* Answer Review */
+.answer-list {
+  margin-top: 15px;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.answer-item {
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.answer-item.correct {
+  background: #28a745;
+  color: white;
+}
+
+.answer-item.wrong {
+  background: #dc3545;
+  color: white;
+}
+
+/* Scrollbar */
+.answer-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.answer-list::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+.answer-list::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.answer-list::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+/* Leaderboard Container */
+.leaderboard-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Leaderboard Title */
+.leaderboard-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Leaderboard List */
+.leaderboard-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Individual Score Item */
+.leaderboard-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Hover Effect */
+.leaderboard-item:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Special Styling for Top 3 */
+.leaderboard-item:nth-child(1) {
+  background: gold;
+  color: black;
+  font-weight: bold;
+}
+.leaderboard-item:nth-child(2) {
+  background: silver;
+  color: black;
+}
+.leaderboard-item:nth-child(3) {
+  background: #cd7f32; /* Bronze */
+  color: black;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
