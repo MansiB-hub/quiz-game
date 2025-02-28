@@ -1,5 +1,5 @@
 import express from "express";
-import { ApolloServer } from "@apollo/server"; // Correct import for v4
+import { ApolloServer } from "@apollo/server"; // Apollo v4
 import { expressMiddleware } from "@apollo/server/express4";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -7,10 +7,12 @@ import bodyParser from "body-parser";
 import { gql } from "graphql-tag";
 
 const app = express();
-app.use(cors());
-app.use(bodyParser.json()); // Needed for parsing JSON requests
+const PORT = process.env.PORT || 4000; // ✅ Use dynamic port
 
-// ✅ Connect to MongoDB (Remove deprecated options)
+app.use(cors());
+app.use(bodyParser.json()); // ✅ Parse JSON requests
+
+// ✅ Connect to MongoDB
 mongoose
   .connect("mongodb+srv://mansibhegade123:Mansi9205@cluster0.si6nr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("Connected to MongoDB"))
@@ -31,7 +33,7 @@ const ScoreSchema = new mongoose.Schema({
 const Question = mongoose.model("Question", QuestionSchema);
 const Score = mongoose.model("Score", ScoreSchema);
 
-// ✅ GraphQL Type Definitions (Fixed `getQuestions`)
+// ✅ GraphQL Type Definitions
 const typeDefs = gql`
   type Question {
     _id: ID!
@@ -47,7 +49,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    getQuestions: [Question]  # ✅ Added missing query
+    getQuestions: [Question]
     getLeaderboard: [Score]
   }
 
@@ -75,8 +77,12 @@ const resolvers = {
 const server = new ApolloServer({ typeDefs, resolvers });
 await server.start();
 
-// ✅ Use Apollo Middleware (Fixed placement)
 app.use("/graphql", express.json(), expressMiddleware(server));
 
+// ✅ Fix "Cannot GET /" issue
+app.get("/", (req, res) => {
+  res.send("Quiz Game Backend is running!");
+});
+
 // ✅ Start the Express Server
-app.listen(4000, () => console.log("Server running on http://localhost:4000/graphql"));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
