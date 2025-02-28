@@ -9,7 +9,8 @@ import { gql } from "graphql-tag";
 const app = express();
 const PORT = process.env.PORT || 4000; // ✅ Use dynamic port
 
-app.use(cors());
+app.use(cors({ origin: "https://your-frontend.vercel.app", credentials: true }));
+
 app.use(bodyParser.json()); // ✅ Parse JSON requests
 
 // ✅ Connect to MongoDB
